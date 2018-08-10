@@ -17,6 +17,27 @@
 ;; 1 (with n = 100 and n = 1000), and compare the results to those of the
 ;; integral procedure shown above.
 
+(defn coeff [k n]
+  (cond (= 0   k) 1
+        (= n   k) 1
+        (odd?  k) 4
+        (even? k) 2))
+
+(defn coeffs [n]
+  (map #(coeff % (dec n)) (range n)))
+
 (defn simpson
   [f a b n]
-  (let []))
+  (let [h (/ (- b a)
+             n)
+        yk (fn [k]
+             (f (+ a (* k h))))]
+    (* (/ h 3)
+       (reduce + (map *
+                      (coeffs n)
+                      (map yk (range n)))))))
+
+(defn cube [x]
+  (* x x x))
+
+(float (simpson cube 0 1 100000))
