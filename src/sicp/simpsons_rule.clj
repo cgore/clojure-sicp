@@ -1,0 +1,2 @@
+(ns sicp.simpsons-rule)
+
