@@ -40,4 +40,4 @@
 (defn cube [x]
   (* x x x))
 
-(float (simpson cube 0 1 100000))
+(float (simpson cube 0 1 100000)) ; about 0.25
