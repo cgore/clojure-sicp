@@ -58,3 +58,5 @@
 
 (defn fpi [n]
   (float (pi n)))
+
+;; TODO - if I was smarter or less tired, I'd use lazy sequences here.
